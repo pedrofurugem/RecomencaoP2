@@ -1,0 +1,14 @@
+<mat-accordion *ngIf="recomendacoes.length > 0">
+    <mat-expansion-panel *ngFor="let recomendacao of recomendacoes">
+    <mat-expansion-panel-header>recomendação</mat-expansion-panel-header>
+        <p>{{recomendacao.texto}}</p>
+      <mat-action-row>
+        <button mat-button color="primary" [routerLink]="['/editar', recomendacao.id]">EDITAR</button>
+        <button mat-button color="warn" (click)="onDelete(recomendacao.id)">REMOVER</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+    </mat-accordion>
+    
+    <p class="mat-body-strong" style="text-align: center;" *ngIf="recomendacoes.length <= 0">
+        o que você sugere?
+    </p>

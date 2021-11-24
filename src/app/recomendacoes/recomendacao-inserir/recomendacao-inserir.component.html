@@ -1,0 +1,23 @@
+<h2> Escreva no card abaixo o que você recomenda para prevenção da covid-19</h2>
+
+<mat-card>
+  <form (submit)="onSalvarRecomendacao(recomendacaoForm)" #recomendacaoForm="ngForm">
+    <mat-form-field appearance="outline">
+    <input 
+        required
+        minlength="1"
+        type="text" 
+        matInput
+        placeholder="Digite uma nova recomendação" 
+        name="texto" 
+        ngModel
+        [ngModel] = "recomendacao?.texto"
+        #texto="ngModel"
+        />
+        <mat-error *ngIf="texto.invalid">ERRO! campo vazio</mat-error>
+    </mat-form-field>
+        <button color="accent" mat-raised-button>
+            OK
+        </button>
+    </form>
+</mat-card>
